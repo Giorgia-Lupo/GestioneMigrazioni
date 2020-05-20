@@ -1,4 +1,4 @@
-package it.polito.tdp.borders.model;
+   package it.polito.tdp.borders.model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -25,21 +25,23 @@ public class Simulatore {
 	private int T = -1;
 	private Map<Country, Integer> stanziali;
 	
-	
+	//metodo di inizializzazione; 
+	//inizializzato dal modello che dice lo stato di partenza e riferimento al grafo
+	//il modello passa i parametri della simulazione e il modello su cui possiamo simulare
 	public void init(Country partenza, Graph<Country, DefaultEdge> grafo) {
 		this.partenza = partenza;
 		this.grafo = grafo;
 		
 		//impostazione dello stato iniziale
-		this.T = 1;
-		stanziali = new HashMap<>();
+		this.T = 1; //tempo parte da 1
+		stanziali = new HashMap<>(); //la creo con tutti gli stati modellati e inizializzo n°persone=0;
 		for(Country c : this.grafo.vertexSet()) {
 			stanziali.put(c, 0);
-		}
+		} 
 		//creo la coda
 		this.queue = new PriorityQueue<Evento>();
 		//inserisco il primo evento
-		this.queue.add(new Evento(T, partenza, N_MIGRANTI));
+		this.queue.add(new Evento(T, partenza, N_MIGRANTI));//al T=1, arrivano 1000 migranti
 	}
 	
 	public void run() {

@@ -43,13 +43,15 @@ public class Model {
 		}
 	}
 	
+	//per la tendina dell'FXMLController, li voglio ordinati
 	public List<Country> getCountries() {
 		List<Country> countries = new ArrayList<Country>();
 		countries.addAll(this.graph.vertexSet());
-		Collections.sort(countries);
+		Collections.sort(countries); //Country implemento un Comparable.
 		return countries;
 	}
 	
+	//Lista di coppie country-numero di vicini
 	public List<CountryAndNumber> getCountryAndNumber() {
 		List<CountryAndNumber> list = new ArrayList<>() ;
 		
@@ -60,6 +62,7 @@ public class Model {
 		return list ;
 	}
 	
+	//crea simulatore ed esegue la simulazione
 	public void simula(Country partenza) {
 		if(this.graph != null) {
 			sim.init(partenza, this.graph);

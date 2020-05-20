@@ -1,4 +1,4 @@
-package it.polito.tdp.borders.model;
+ package it.polito.tdp.borders.model;
 
 public class Evento implements Comparable<Evento>{
 	

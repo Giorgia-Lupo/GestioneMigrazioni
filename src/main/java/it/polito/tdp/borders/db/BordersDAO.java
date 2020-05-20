@@ -106,7 +106,7 @@ public class BordersDAO {
 				"from contiguity " + 
 				"where year<=? " + 
 				"and conttype=1 " + 
-				"and state1no < state2no" ;
+				"and state1no < state2no" ; //per non prendere la stessa coppia. solo 1-2 e non 2-1
 		
 		List<Adiacenza> result = new ArrayList<>() ;
 		
